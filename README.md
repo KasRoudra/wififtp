@@ -32,7 +32,8 @@ git clone https://github.com/KasRoudra/wififtp && cd wififtp && python ftp.py
 ### You must need "Python" installed in your operating system. If you use windows you also have to enable python from "Windows Firewall". If you can't enable python from firewall, you may need to disable firewall while using ftp!
 ### Your sharing link will be like "ftp://192.168.0.105:8080". Make sure you are connected to router/Wi-Fi to aceess folder from other device!
 ## [+] Screenshot:
-<img src="https:github.com/KasRoudra/wififtp/blob/main/ss.jpeg">
+<img src="https://github.com/KasRoudra/wififtp/blob/main/ss.jpeg">
+
 ## [+] Find Me on :
 <ul>
 <li><a href="https://facebook.com/KasRoudra"><img src="https://github.com/KasRoudra/kasweb/raw/main/assets/facebook.png" alt="facebook" width="20px" height="20px"></a></li>
