@@ -93,7 +93,7 @@ def sprint(text, second=0.05):
 
 # Prints colorful texts
 def lolcat(text, slow=True, second=0.05):
-    if is_installed("lolcati"):
+    if is_installed("lolcat"):
         run(["lolcat"], input=text, text=True)
     else:
         if slow:
