@@ -135,9 +135,9 @@ def pretty_path(path, rel=True):
     if path.startswith("\\"):
         new_path = path[1:]
     if "~" in path:
-        new_path = path.replace("~", home)
+        new_path = new_path.replace("~", home)
     if home in path and rel:
-        new_path = path.replace(home, "~")
+        new_path = new_path.replace(home, "~")
     return new_path
 
 # Check if a port is being used
@@ -176,7 +176,7 @@ def get_path():
             path = pretty_path(
                 escape(
                     input(
-                        f"{ask}Enter path (Default: {green}{default_dir}{yellow})\n-> "
+                        f"{ask}Enter path (Default: {green}{default_dir}{yellow})\n->{green} "
                     )
                 ),
                 rel=False
@@ -201,7 +201,7 @@ def get_port():
     while True:
         if arg_port is None:
             port = input(
-            f"{ask}Enter port (Default: {green}{default_port}{yellow})\n-> ")
+            f"{ask}Enter port (Default: {green}{default_port}{yellow})\n->{green} ")
         else:
             port = str(arg_port)
         if port.isdigit() and int(port) > 1023 and int(port) < 65536 and is_available_port(port):
@@ -234,7 +234,7 @@ def start_ftp():
     ip = get_ip()
     path = get_path()
     port = get_port()
-    lolcat(f"{info2}Your FTP link is: {green}ftp://{ip}:{port}{nc}")
+    lolcat(f"{info2}Your FTP link is: {green}ftp://{ip}:{port}\n{nc}")
     ftp(path, port)
 
 # StartPoint of script
