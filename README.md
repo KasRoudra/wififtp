@@ -4,7 +4,7 @@
 ***WiFi-FTP is a tool to create a simple ftp server in local network. Anyone under same wifi/router can read/write/modify the folder you shared.***
 <h2 align="center">Share files under same Wi-Fi!</h2>
 
-### [+] Installation
+### [-] Installation
 
 ```apt install python3 python3-pip -y```
 
@@ -26,7 +26,7 @@ git clone https://github.com/KasRoudra/wififtp && cd wififtp && python3 ftp.py
  - You can customize both port and shared folder. Without change, default port will be 2121 and default folder will be the folder from which the file is executed!
  - Now WiFi-FTP also support arguments 
 
-### [-] Options
+### [~] Options
 ```
 usage: ftp.py [-h] [-p PORT] [-d DIRECTORY]
 

@@ -1,3 +1,42 @@
+# -*- coding: UTF-8 -*-
+# ToolName   : WiFi-FTP
+# Author     : KasRoudra
+# License    : MIT
+# Copyright  : KasRoudra (2021-2022)
+# Github     : https://github.com/KasRoudra
+# Contact    : https://t.me/KasRoudra
+# Description: Share files between devices connected to same wlan/wifi/hotspot/router""
+# Tags       : ftp, wififtp, share-files
+# 1st Commit : 18/08/2021
+# Language   : Python
+# Portable file/script
+# If you copy open source code, consider giving credit
+# Env        : #!/usr/bin/env python
+
+"""
+MIT License
+
+Copyright (c) 2021-2023 KasRoudra
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+"""
+
 from argparse import ArgumentParser
 from os import (
     name,
@@ -73,11 +112,17 @@ argparser = ArgumentParser()
 
 argparser.add_argument("-p", "--port", type=int, help=f"WiFi-FTP's server port [Default: {default_port}]")
 argparser.add_argument("-d", "--directory", help=f"Directory where server will start [Default: {default_dir}]")
+argparser.add_argument("-u", "--username", help=f"FTP Username [Default: None]")
+argparser.add_argument("-k", "--password", help=f"FTP Password [Default: None]")
+argparser.add_argument("-v", "--version", help=f"Prints version of WiFi-FTP", action="store_true")
 
 args = argparser.parse_args()
 
 arg_port = args.port
 arg_directory = args.directory
+arg_username = args.username
+arg_password = args.password
+arg_version = args.version
 
 
 # Check if a package is installed
@@ -120,7 +165,7 @@ def inst_deps():
             import pyftpdlib
             break
         except ImportError:
-            shell(f"{executable} -m pip install pyftpdlib")
+            shell(f"{executable} -m pip install pyftpdlib --break-system-packages")
         except Exception as e:
             print(f"{error}{str(e)}")
         if retry == 1:
@@ -167,6 +212,11 @@ def check_local():
         print(
             f"{error}You are not using any local network!\nPlease connect to a hotspot or router/Wi-Fi!{nc}"
         )
+        exit()
+
+def check_args():
+    if arg_version:
+        print(f"{info2}WiFi-FTP version: {green}{version}")
         exit()
 
 # Use current directory as ftp path if no path is specified by user
@@ -220,8 +270,10 @@ def ftp(path, port):
     from pyftpdlib.handlers import FTPHandler
     from pyftpdlib.servers import FTPServer
     authorizer = DummyAuthorizer()
-    authorizer.add_user("user", "12345", path, perm="elradfmw")
-    authorizer.add_anonymous(path, perm="elradfmw")
+    if arg_username is not None and arg_password is not None:
+        authorizer.add_user(arg_username, arg_password, path, perm="elradfmw")
+    else:
+        authorizer.add_anonymous(path, perm="elradfmw")
 
     handler = FTPHandler
     handler.authorizer = authorizer
@@ -239,16 +291,17 @@ def start_ftp():
 
 # StartPoint of script
 def main():
-    if __name__ == "__main__":
-        try:
-            inst_deps()
-            show_banner()
-            check_local()
-            start_ftp()
-        except KeyboardInterrupt:
-            print(f"\n{info}Closing script....{nc}")
-        except Exception as e:
-            print(f"{error}{str(e)}")
+    try:
+        check_args()
+        inst_deps()
+        show_banner()
+        check_local()
+        start_ftp()
+    except KeyboardInterrupt:
+        print(f"\n{info}Closing script....{nc}")
+    except Exception as e:
+        print(f"{error}{str(e)}")
 
 
-main()
+if __name__ == "__main__":
+    main()
