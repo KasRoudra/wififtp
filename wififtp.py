@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# ToolName   : WiFi-FTP
+# ToolName   : WiFiFTP
 # Author     : KasRoudra
 # License    : MIT
 # Copyright  : KasRoudra (2021-2022)
@@ -99,22 +99,22 @@ default_dir = getcwd()
 default_port = 2121
 
 banner = f"""
-{red}__        ___ _____ _       _____ _____ ____  
-{blue}\ \      / (_)  ___(_)     |  ___|_   _|  _ \  
-{green} \ \ /\ / /| | |_  | |_____| |_    | | | |_) |
-{cyan}  \ V  V / | |  _| | |_____|  _|   | | |  __/ 
-{purple}   \_/\_/  |_|_|   |_|     |_|     |_| |_| 
-{blue}                                    [{green}v{cyan}{version}{blue}]   
-{cyan}                            [{blue}By {green}KasRoudra{cyan}]{nc}
+{red}__        ___ _____ _  _____ _____ ____  
+{blue}\ \      / (_)  ___(_)|  ___|_   _|  _ \  
+{green} \ \ /\ / /| | |_  | || |_    | | | |_) |
+{cyan}  \ V  V / | |  _| | ||  _|   | | |  __/ 
+{purple}   \_/\_/  |_|_|   |_||_|     |_| |_| 
+{blue}{" "*31}[{green}v{cyan}{version}{blue}]   
+{cyan}{" "*23}[{blue}By {green}KasRoudra{cyan}]{nc}
 """
 
 argparser = ArgumentParser()
 
-argparser.add_argument("-p", "--port", type=int, help=f"WiFi-FTP's server port [Default: {default_port}]")
+argparser.add_argument("-p", "--port", type=int, help=f"WiFiFTP's server port [Default: {default_port}]")
 argparser.add_argument("-d", "--directory", help=f"Directory where server will start [Default: {default_dir}]")
 argparser.add_argument("-u", "--username", help=f"FTP Username [Default: None]")
 argparser.add_argument("-k", "--password", help=f"FTP Password [Default: None]")
-argparser.add_argument("-v", "--version", help=f"Prints version of WiFi-FTP", action="store_true")
+argparser.add_argument("-v", "--version", help=f"Prints version of WiFiFTP", action="store_true")
 
 args = argparser.parse_args()
 
@@ -216,7 +216,7 @@ def check_local():
 
 def check_args():
     if arg_version:
-        print(f"{info2}WiFi-FTP version: {green}{version}")
+        print(f"{info2}WiFiFTP version: {green}{version}")
         exit()
 
 # Use current directory as ftp path if no path is specified by user
