@@ -1,0 +1,29 @@
+[build-system]
+requires = [
+    "setuptools>=58.0.4",
+    "wheel>=0.37.0"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry]
+name = "WiFiFTP"
+version = "0.1.0"
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/KasRoudra/WiFi-FTP/"
+include = ["README.md", "LICENSE"]
+description = "Share files between devices connected to same wlan/wifi/hotspot/router"
+authors = ["KasRoudra <kasroudrakrd@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pyftpdlib = "^1.5.0"
+
+[tool.poetry.scripts]
+wififtp = "wififtp:main"
+
+[build-system.sdist]
+formats = ["gztar"]
+
+[build-system.bdist_wheel]
+universal = false

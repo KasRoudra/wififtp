@@ -4,37 +4,43 @@
 ***WiFi-FTP is a tool to create a simple ftp server in local network. Anyone under same wifi/router can read/write/modify the folder you shared.***
 <h2 align="center">Share files under same Wi-Fi!</h2>
 
-### [+] Installation
+### [-] Installation
 
 ```apt install python3 python3-pip -y```
 
-```pip3 install pyftpdlib```
+```pip3 install pyftpdlib --break-system-packages```
 
-```git clone https://github.com/KasRoudra/wififtp```
+```git clone https://github.com/KasRoudra/WiFiFTP```
 
-```cd wififtp```
+```cd WiFiFTP```
 
-```python3 ftp.py```
+```python3 wififtp.py```
 
-### Or 
-#### Download executable file for windows from <a href="https://github.com/KasRoudra/wififtp/releases/download/v1.0_Beta/ftp.exe">releases</a>!
-### Or, Use Single Command
-```
-git clone https://github.com/KasRoudra/wififtp && cd wififtp && python3 ftp.py
-```
+### Pip
+ - `pip3 install wififtp` [For Termux]
+ - `sudo pip3 install wififtp  --break-system-packages` [For Linux]
+ - `wififtp`
+
 ### [*] Features
  - You can customize both port and shared folder. Without change, default port will be 2121 and default folder will be the folder from which the file is executed!
  - Now WiFi-FTP also support arguments 
 
-### [-] Options
+### [~] Options
 ```
-usage: ftp.py [-h] [-p PORT] [-d DIRECTORY]
+usage: wififtp.py [-h] [-p PORT] [-d DIRECTORY] [-u USERNAME] [-k PASSWORD]
+                  [-v]
 
 options:
   -h, --help            show this help message and exit
-  -p PORT, --port PORT  WiFi-FTP's server port [Default: 2121]
+  -p PORT, --port PORT  WiFiFTP's server port [Default: 2121]
   -d DIRECTORY, --directory DIRECTORY
-                        Directory where server will start [Default: /home/kasroudra/]
+                        Directory where server will start [Default: ~/wififtp]
+  -u USERNAME, --username USERNAME
+                        FTP Username [Default: None]
+  -k PASSWORD, --password PASSWORD
+                        FTP Password [Default: None]
+  -v, --version         Prints version of WiFiFTP
+
 ```
 ## [+] Caution:
 
