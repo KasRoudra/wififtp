@@ -2,7 +2,7 @@
 
 ### [+] Description :
 ***WiFi-FTP is a tool to create a simple ftp server in local network. Anyone under same wifi/router can read/write/modify the folder you shared.***
-<h2 align="center">Share files under same Wi-Fi!</h2>
+
 
 ### [-] Installation
 
@@ -47,7 +47,7 @@ options:
 ### You must need "Python" installed in your operating system. If you use firewall you also have to enable python from "Windows Firewall". If you can't enable python from firewall, you may need to disable firewall while using ftp!
 ### Your sharing link will be like "ftp://192.168.0.105:2121". Make sure you are connected to same router/Wi-Fi to access folder from other device!
 ## [+] Screenshot:
-<img src="https://github.com/KasRoudra/wififtp/blob/main/ss.jpg">
+![preview](https://github.com/KasRoudra/wififtp/raw/main/ss.jpg)
 
 ## [~] Find Me on :
 

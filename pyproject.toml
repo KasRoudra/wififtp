@@ -7,10 +7,10 @@ build-backend = "setuptools.build_meta"
 
 [tool.poetry]
 name = "WiFiFTP"
-version = "0.1.0"
+version = "0.1.1"
 readme = "README.md"
 license = "MIT"
-repository = "https://github.com/KasRoudra/WiFi-FTP/"
+repository = "https://github.com/KasRoudra/WiFiFTP/"
 include = ["README.md", "LICENSE"]
 description = "Share files between devices connected to same wlan/wifi/hotspot/router"
 authors = ["KasRoudra <kasroudrakrd@gmail.com>"]

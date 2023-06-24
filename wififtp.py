@@ -2,7 +2,7 @@
 # ToolName   : WiFiFTP
 # Author     : KasRoudra
 # License    : MIT
-# Copyright  : KasRoudra (2021-2022)
+# Copyright  : KasRoudra (2021-2023)
 # Github     : https://github.com/KasRoudra
 # Contact    : https://t.me/KasRoudra
 # Description: Share files between devices connected to same wlan/wifi/hotspot/router""
@@ -86,7 +86,10 @@ bcyan = "\033[1;36m"
 white = "\033[0;37m"
 nc = "\033[00m"
 
-version = "1.0"
+version = "0.1.1"
+
+# Major Minor version ignoring patch
+mm_ver = version[:3]
 
 # Regular Snippets
 ask = f"{green}[{white}?{green}] {yellow}"
@@ -104,7 +107,7 @@ banner = f"""
 {green} \ \ /\ / /| | |_  | || |_    | | | |_) |
 {cyan}  \ V  V / | |  _| | ||  _|   | | |  __/ 
 {purple}   \_/\_/  |_|_|   |_||_|     |_| |_| 
-{blue}{" "*31}[{green}v{cyan}{version}{blue}]   
+{blue}{" "*31}[{green}v{cyan}{mm_ver}{blue}]   
 {cyan}{" "*23}[{blue}By {green}KasRoudra{cyan}]{nc}
 """
 
